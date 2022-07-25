@@ -32,9 +32,9 @@ const TodoItem = (props) => {
         {
           isEditing ? 
           <>
-              <form className="text-[#eb44c1] pl-[8px] block pt-[3px] " onSubmit={handleSave}>
-                <input value={text} onChange={(e) => setText(e.target.value)} className="inline-block w-11/12 text-[#8d8a8a] outline-none bg-[#e4e0e0] pl-[3px] ml-[-3px]" />
-                <i class="fa-solid fa-circle-check pl-[2px] text-[#333] hover:text-[#51df64] rounded-[3px] cursor-pointer text-center text-[1rem]" onClick={handleSave}></i>
+              <form className="text-[#eb44c1] " onSubmit={handleSave}>
+                <input value={text} onChange={(e) => setText(e.target.value)} className="inline-block h-[2rem] w-11/12 text-[#8d8a8a] outline-[#31aaf0] bg-[#e4e0e0] pl-[6px] italic " />
+                <i class="fa-solid fa-circle-check pl-[5px] text-[#333] hover:text-[#51df64] rounded-[3px] cursor-pointer text-center text-[1rem]" onClick={handleSave}></i>
 
               </form>
           </>
@@ -43,14 +43,14 @@ const TodoItem = (props) => {
           <input
             type="checkbox"
             checked={todo.isCompleted}
-            className="ml-[10px] border-indigo-500/100 text-[1rem]!"
+            className="ml-[10px] text-[1rem]"
             onChange={() => handleCheckBox(todo.id)}
           />
           <span
-            className={`pl-[8px] text-[20px] inline-block first-letter:${
+            className={`pl-[8px] font-normal text-[20px] inline-block first-letter:${
               todo.isCompleted
-                ? "text-[#b4b2b2] italic line-through "
-                : " text-[#51a5bc]"
+                ? "text-[#e2dfdf] italic line-through "
+                : " text-[#324fcf]"
             }`}
           >
             {todo.value}
@@ -60,14 +60,12 @@ const TodoItem = (props) => {
             onClick={() => handleClickDelete(todo)}
           ></i>
           <i
-            class="fa-solid fa-pen-to-square cursor-pointer float-right pt-[8px] hover:text-[#f5f83d] mr-[2px] "
+            className="fa-solid fa-pen-to-square cursor-pointer float-right pt-[8px] hover:text-[#c6c932] mr-[2px] "
             onClick={() => handleEdit()}
           ></i>
           </>
         }
       </div>
-      
-
     </>
   );
 };

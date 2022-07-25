@@ -27,17 +27,17 @@ const AddTodo = (props) => {
         <i class="fa-solid fa-backward text-[2rem]"></i>
       </div>
       <div className="text-center ">
-        <h1 className="text-[3rem] text-[#fff]">Todos</h1>
+        <h1 className="text-[3rem] text-[#fff] italic">Todos</h1>
         <input
           id="add-input"
           placeholder="Create a new todo ..."
-          className="w-[18rem] h-[2.5rem] p-[8px] rounded-[5px] outline-none text-[#3e9deb]"
+          className="w-[18rem] h-[2.5rem] p-[8px] rounded-[5px] outline-none text-[#3e9deb] italic"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyPress={(e) => handleAddTodo(e)}
         />
 
-        <i class="fa-solid fa-left"></i>
+        <i className="fa-solid fa-left"></i>
       </div>
     </>
   );

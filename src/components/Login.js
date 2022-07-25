@@ -30,7 +30,7 @@ const Login = (props) => {
   return (
     <>
       <div className="mb-[5rem] pt-[2rem] pl-[2rem] text-[white] cursor-pointer hover:text-[#e0dede] " onClick={() => handleBack()}>
-      <i class="fa-solid fa-backward text-[2rem]"></i>
+      <i className="fa-solid fa-backward text-[2rem]"></i>
         </div>
       <div className="bg-white w-3/5 lg:w-2/6 h-auto m-auto rounded-lg shadow-gray-50 ">
         <div className="">
@@ -65,7 +65,7 @@ const Login = (props) => {
                     <ErrorMessage
                       component="div"
                       name="email"
-                      className="invalid-feedback text-[#e84d4d] border-[#e84d4d]"
+                      className="invalid-feedback text-[#e84d4d] italic"
                     />
                   </div>
 
@@ -89,7 +89,7 @@ const Login = (props) => {
                     <ErrorMessage
                       component="div"
                       name="password"
-                      className="invalid-feedback text-[#e84d4d]"
+                      className="invalid-feedback text-[#e84d4d] italic"
                     />
                   </div>
                   <div className="text-center">
@@ -97,7 +97,7 @@ const Login = (props) => {
                       type="submit"
                       disabled={!(isValid&&dirty)}
                       className={` mb-[2rem] text-center mt-[3rem] w-1/3 h-[2rem] rounded-lg ${
-                        isValid && dirty ?  "bg-[#f44f4f]":"bg-[#d5d2d2]" 
+                        isValid && dirty ?  "bg-[#f44f4f] ":"bg-[#e6e3e3] text-[#888484] cursor-not-allowed" 
                       }`}
                     >
                       Login
