@@ -5,12 +5,11 @@ const TodoList = (props) => {
   const {
     todoList,
     handleDelete,
-    handleEditTodo,
     handleCheckBox,
-    isEmptyObj,
-    editTodo,
-    setEditTodo,
+    EditTodo,
+    clearAll
   } = props;
+
   return (
     <>
       <div className="flex items-center flex-col gap-[3px] mt-[2.5rem] rounded-xl">
@@ -23,15 +22,15 @@ const TodoList = (props) => {
                   key={`todo-${item.id}`}
                   todo={item}
                   handleDelete={handleDelete}
-                  isEmptyObj={isEmptyObj}
-                  handleEditTodo={handleEditTodo}
                   handleCheckBox={handleCheckBox}
-                  editTodo={editTodo}
-                  setEditTodo={setEditTodo}
+                  EditTodo={EditTodo}
+                  todoList={todoList}
                 />
               </>
             );
           })}
+          {todoList.length > 0 && <div className="mt-[5px] mb-[2rem] text-[#fff] text-[1.25rem] italic flex justify-between"><span>{todoList.length} item</span> <span className="pl-[10.5rem] cursor-pointer hover:text-[#c7c4c4]" onClick={clearAll}> clear all</span></div> }
+          
       </div>
     </>
   );

@@ -21,18 +21,17 @@ const AddTodo = (props) => {
   return (
     <>
       <div
-        className="pt-1 pl-2 text-[1.2rem] hover:text-[#7a7777] cursor-pointer text-[#fff] "
+        className="pt-5 pl-5 text-[1.2rem] hover:text-[#bdbaba] cursor-pointer text-[#fff] "
         onClick={() => handleBack()}
       >
-        <i class="fa-solid fa-angles-left"></i>
-        Back
+        <i class="fa-solid fa-backward text-[2rem]"></i>
       </div>
       <div className="text-center ">
         <h1 className="text-[3rem] text-[#fff]">Todos</h1>
         <input
           id="add-input"
           placeholder="Create a new todo ..."
-          className="w-[18rem] h-[2.5rem] p-[8px] rounded-[5px] outline-none text-[#eb44c1]"
+          className="w-[18rem] h-[2.5rem] p-[8px] rounded-[5px] outline-none text-[#3e9deb]"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyPress={(e) => handleAddTodo(e)}

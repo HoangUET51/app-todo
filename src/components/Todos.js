@@ -4,8 +4,6 @@ import TodoList from "./TodoList";
 import _ from "lodash";
 const Todos = (props) => {
   const [todoList, setTodolist] = useState([]);
-  const [editTodo, setEditTodo] = useState({});
-
   const addTodo = (todo) => {
     setTodolist([...todoList, todo]);
   };
@@ -15,12 +13,6 @@ const Todos = (props) => {
     currentTodoList = currentTodoList.filter((item) => item.id !== todo.id);
     setTodolist(currentTodoList);
   };
-
-  const handleEditTodo = (todo) => {
-    setEditTodo(todo);
-  };
-
-  let isEmptyObj = Object.keys(editTodo).length === 0;
 
   const handleCheckBox = (id) => {
     let currentTodoList = _.clone(todoList);
@@ -33,7 +25,21 @@ const Todos = (props) => {
 
     setTodolist(currentTodoList);
   };
-  console.log("check todolist", todoList);
+
+  const EditTodo = (id,updateTodo) => {
+    const updateTodoList = todoList.map((todo)=>{
+      if(todo.id === id) {
+        return {...todo,value: updateTodo}
+      }
+      return todo
+    })
+    setTodolist(updateTodoList)
+  }
+
+  const clearAll = () => {
+    const removeTodo = todoList.filter((todo)=> !todo)
+    setTodolist(removeTodo)
+  }
 
   return (
     <>
@@ -41,11 +47,9 @@ const Todos = (props) => {
       <TodoList
         todoList={todoList}
         handleDelete={handleDelete}
-        handleEditTodo={handleEditTodo}
         handleCheckBox={handleCheckBox}
-        isEmptyObj={isEmptyObj}
-        editTodo={editTodo}
-        setEditTodo={setEditTodo}
+        EditTodo={EditTodo}
+        clearAll = {clearAll}
       />
     </>
   );
