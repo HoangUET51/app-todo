@@ -29,7 +29,7 @@ const TodoList = (props) => {
               </>
             );
           })}
-          {todoList.length > 0 && <div className="mt-[5px] mb-[2rem] text-[#fff] text-[1.25rem] italic flex justify-between"><span>{todoList.length} item</span> <span className="pl-[10.5rem] cursor-pointer hover:text-[#c7c4c4]" onClick={clearAll}> clear all</span></div> }
+          {todoList.length > 0 && <div className="mt-[5px] mb-[2rem] text-[#fff] text-[1.25rem] italic flex justify-between"><span>{todoList.length} item</span> <span className="pl-[10.3rem] cursor-pointer hover:text-[#c7c4c4]" onClick={clearAll}> clear all</span></div> }
           
       </div>
     </>

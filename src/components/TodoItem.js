@@ -60,7 +60,7 @@ const TodoItem = (props) => {
             onClick={() => handleClickDelete(todo)}
           ></i>
           <i
-            class="fa-solid fa-pen-to-square cursor-pointer float-right pt-[8px] hover:text-[#f66666] mr-[2px] "
+            class="fa-solid fa-pen-to-square cursor-pointer float-right pt-[8px] hover:text-[#f5f83d] mr-[2px] "
             onClick={() => handleEdit()}
           ></i>
           </>

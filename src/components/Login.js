@@ -13,7 +13,7 @@ const Login = (props) => {
       .email("Invalid email address format")
       .required("Email is required"),
     password: Yup.string()
-      .min(3, "Password must be 3 characters at minimum")
+      .min(8, "Password must be 8 characters at minimum")
       .required("Password is required"),
   });
 
@@ -46,7 +46,7 @@ const Login = (props) => {
               validationSchema={LoginSchema}
               onSubmit={onSubmit}
             >
-              {({ touched, errors, isValid }) => (
+              {({ touched, errors, isValid,dirty }) => (
                 <Form>
                   <div className="">
                     <label htmlFor="email" className="block mb-[8px]">
@@ -56,7 +56,7 @@ const Login = (props) => {
                       type="email"
                       name="email"
                       placeholder="Enter email"
-                      className={`mb-[3px] block w-full h-[40px] pl-[8px] rounded-lg bg-[#e9e7e7] form-control ${
+                      className={`mb-[3px] block w-full h-[40px] pl-[8px] rounded-lg bg-[#e9e7e7] outline-[#abedf1] form-control ${
                         touched.email && errors.email
                           ? " is-invalid border-[#ef3535] "
                           : ""
@@ -80,7 +80,7 @@ const Login = (props) => {
                       type="password"
                       name="password"
                       placeholder="Enter password"
-                      className={`mb-[3px] block w-full h-[40px] pl-[8px] rounded-lg form-control bg-[#e9e7e7] ${
+                      className={`mb-[3px] block w-full h-[40px] pl-[8px] rounded-lg form-control bg-[#e9e7e7] outline-[#abedf1] ${
                         touched.password && errors.password
                           ? "is-invalid border-[#ef3535]"
                           : ""
@@ -95,9 +95,9 @@ const Login = (props) => {
                   <div className="text-center">
                     <button
                       type="submit"
-                      disabled={!isValid}
+                      disabled={!(isValid&&dirty)}
                       className={` mb-[2rem] text-center mt-[3rem] w-1/3 h-[2rem] rounded-lg ${
-                        !isValid ? "bg-[#f44f4f]" : "bg-[#d5d2d2]"
+                        isValid && dirty ?  "bg-[#f44f4f]":"bg-[#d5d2d2]" 
                       }`}
                     >
                       Login

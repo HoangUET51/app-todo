@@ -34,7 +34,7 @@ const Home = (props) => {
           
           }
           
-          <img src={todolist} className="w-1/2 m-auto mt-[5rem]" />
+          <img src={todolist} className="w-1/2 m-auto mt-[7rem]" />
         </div>
       </div>
     </>
