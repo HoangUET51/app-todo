@@ -22,9 +22,9 @@ const AddTodo = (props) => {
     <>
       <div
         className="pt-5 pl-5 text-[1.2rem] hover:text-[#bdbaba] cursor-pointer text-[#fff] "
-        onClick={() => handleBack()}
+        onClick={handleBack}
       >
-        <i class="fa-solid fa-backward text-[2rem]"></i>
+        <i className="fa-solid fa-backward text-[2rem]"></i>
       </div>
       <div className="text-center ">
         <h1 className="text-[3rem] text-[#fff] italic">Todos</h1>
@@ -36,7 +36,6 @@ const AddTodo = (props) => {
           onChange={(e) => setValue(e.target.value)}
           onKeyPress={(e) => handleAddTodo(e)}
         />
-
         <i className="fa-solid fa-left"></i>
       </div>
     </>

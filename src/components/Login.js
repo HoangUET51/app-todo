@@ -1,11 +1,9 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import * as EmailValidator from "email-validator";
 import { useNavigate } from "react-router-dom";
 const Login = (props) => {
-  
-  const {setUserInfo} = props
+  const { setUserInfo } = props;
 
   const Navigate = useNavigate();
   const LoginSchema = Yup.object().shape({
@@ -19,19 +17,20 @@ const Login = (props) => {
 
   const onSubmit = (values) => {
     Navigate("/");
-    setUserInfo(values)
+    setUserInfo(values);
   };
   const handleBack = () => {
     Navigate("/");
-  }
-
-
+  };
 
   return (
     <>
-      <div className="mb-[5rem] pt-[2rem] pl-[2rem] text-[white] cursor-pointer hover:text-[#e0dede] " onClick={() => handleBack()}>
-      <i className="fa-solid fa-backward text-[2rem]"></i>
-        </div>
+      <div
+        className="mb-[5rem] pt-[2rem] pl-[2rem] text-[white] cursor-pointer hover:text-[#e0dede] "
+        onClick={handleBack}
+      >
+        <i className="fa-solid fa-backward text-[2rem]"></i>
+      </div>
       <div className="bg-white w-3/5 lg:w-2/6 h-auto m-auto rounded-lg shadow-gray-50 ">
         <div className="">
           <div className=" text-center">
@@ -42,11 +41,10 @@ const Login = (props) => {
           <div className="">
             <Formik
               initialValues={{ email: "", password: "" }}
-              
               validationSchema={LoginSchema}
               onSubmit={onSubmit}
             >
-              {({ touched, errors, isValid,dirty }) => (
+              {({ touched, errors, isValid, dirty }) => (
                 <Form>
                   <div className="">
                     <label htmlFor="email" className="block mb-[8px]">
@@ -57,15 +55,13 @@ const Login = (props) => {
                       name="email"
                       placeholder="Enter email"
                       className={`mb-[3px] block w-full h-[40px] pl-[8px] rounded-lg bg-[#e9e7e7] outline-[#abedf1] form-control ${
-                        touched.email && errors.email
-                          ? " is-invalid border-[#ef3535] "
-                          : ""
+                        touched.email && errors.email ? "border-[#ef3535]" : ""
                       }`}
                     />
                     <ErrorMessage
                       component="div"
                       name="email"
-                      className="invalid-feedback text-[#e84d4d] italic"
+                      className="text-[#e84d4d] italic"
                     />
                   </div>
 
@@ -82,7 +78,7 @@ const Login = (props) => {
                       placeholder="Enter password"
                       className={`mb-[3px] block w-full h-[40px] pl-[8px] rounded-lg form-control bg-[#e9e7e7] outline-[#abedf1] ${
                         touched.password && errors.password
-                          ? "is-invalid border-[#ef3535]"
+                          ? "border-[#ef3535]"
                           : ""
                       }`}
                     />
@@ -95,9 +91,11 @@ const Login = (props) => {
                   <div className="text-center">
                     <button
                       type="submit"
-                      disabled={!(isValid&&dirty)}
-                      className={` mb-[2rem] text-center mt-[3rem] w-1/3 h-[2rem] rounded-lg ${
-                        isValid && dirty ?  "bg-[#f44f4f] ":"bg-[#e6e3e3] text-[#888484] cursor-not-allowed" 
+                      disabled={!(isValid && dirty)}
+                      className={`mb-[2rem] text-center mt-[3rem] w-1/3 h-[2rem] rounded-lg ${
+                        isValid && dirty
+                          ? "bg-[#f44f4f] "
+                          : "bg-[#e6e3e3] text-[#888484] cursor-not-allowed"
                       }`}
                     >
                       Login

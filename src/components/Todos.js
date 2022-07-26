@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 import _ from "lodash";
-const Todos = (props) => {
+const Todos = () => {
   const [todoList, setTodolist] = useState([]);
   const addTodo = (todo) => {
     setTodolist([...todoList, todo]);
@@ -26,20 +26,20 @@ const Todos = (props) => {
     setTodolist(currentTodoList);
   };
 
-  const EditTodo = (id,updateTodo) => {
-    const updateTodoList = todoList.map((todo)=>{
-      if(todo.id === id) {
-        return {...todo,value: updateTodo}
+  const EditTodo = (id, updateTodo) => {
+    const updateTodoList = todoList.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, value: updateTodo };
       }
-      return todo
-    })
-    setTodolist(updateTodoList)
-  }
+      return todo;
+    });
+    setTodolist(updateTodoList);
+  };
 
   const clearAll = () => {
-    const removeTodo = todoList.filter((todo)=> !todo)
-    setTodolist(removeTodo)
-  }
+    const removeTodo = todoList.filter((todo) => !todo);
+    setTodolist(removeTodo);
+  };
 
   return (
     <>
@@ -49,7 +49,7 @@ const Todos = (props) => {
         handleDelete={handleDelete}
         handleCheckBox={handleCheckBox}
         EditTodo={EditTodo}
-        clearAll = {clearAll}
+        clearAll={clearAll}
       />
     </>
   );
